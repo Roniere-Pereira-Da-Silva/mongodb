@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <!-- Lista de clientes salvos -->
+    <ul>
+      <% if (result.length > 0) { %>
+        <% for (let i = 0; i < result.length; i++) { %>
+          <li><%= result[i].name %> - <%= result[i].age %> anos</li>
+        <% } %>
+      <% } else { %>
+        <li>Nenhum cliente salvo ainda.</li>
+      <% } %>
+    </ul>
+
+    <!-- Formulário para salvar novos clientes -->
+    <form action="save" method="POST">
+      <p>
+        <label>Nome:
+          <input type="text" name="name">
+        </label>
+      </p>
+      <p>
+        <label>Idade:
+          <input type="text" name="age">
+        </label>
+      </p>
+      <p>
+        <input type="submit" value="Salvar">
+      </p>
+    </form>
+  </body>
+</html>
